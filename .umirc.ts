@@ -13,6 +13,7 @@ export default defineConfig({
     '@font-size-small': '12px',
     '@primary-color': '#4e60d4',
   },
+  history: { type: 'hash' },
   extraBabelPlugins: [
     [
       'import',

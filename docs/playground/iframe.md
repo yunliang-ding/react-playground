@@ -16,7 +16,7 @@ import React, { useState, useEffect } from 'react';
 import { babelParse } from 'react-playground';
 
 export default () => {
-  const params: any = new URLSearchParams(location.search);
+  const params: any = new URLSearchParams(location.hash.split('?')[1]);
   // 解析
   const parseStringToModule = async () => {
     const ComponentApp = await babelParse({

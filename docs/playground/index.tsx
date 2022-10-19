@@ -8,7 +8,7 @@ const defualtCode = `export default () => {
 }`;
 
 export default () => {
-  const params: any = new URLSearchParams(location.search);
+  const params: any = new URLSearchParams(location.hash.split('?')[1]);
   const [iframeSpin, setIframeSpin] = useState(true);
   const [code, setCode] = useState(
     params.get('code') ? decodeURIComponent(params.get('code')) : defualtCode,
@@ -62,7 +62,7 @@ export default () => {
         {!errorInfo && (
           <iframe
             key={code}
-            src={`/~demos/iframe-demo?code=${code}`}
+            src={`${location.pathname}#/~demos/iframe-demo?code=${code}`}
             onLoad={() => {
               setIframeSpin(false);
             }}
