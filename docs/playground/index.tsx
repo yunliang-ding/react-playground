@@ -24,6 +24,7 @@ export default () => {
         prefix: '',
       }); // 检查代码是否有报错
     } catch (error) {
+      setIframeSpin(false);
       setErrorInfo(String(error));
     }
   };
@@ -52,14 +53,21 @@ export default () => {
             <Spin spinning></Spin>
           </div>
         )}
-        {errorInfo && <span>has error</span>}
-        <iframe
-          key={code}
-          src={`/~demos/iframe-demo?code=${code}`}
-          onLoad={() => {
-            setIframeSpin(false);
-          }}
-        />
+        {errorInfo && (
+          <div className="playground-error-info">
+            <pre>解析失败:</pre>
+            <pre>{String(errorInfo)}</pre>
+          </div>
+        )}
+        {!errorInfo && (
+          <iframe
+            key={code}
+            src={`/~demos/iframe-demo?code=${code}`}
+            onLoad={() => {
+              setIframeSpin(false);
+            }}
+          />
+        )}
       </div>
     </div>
   );
