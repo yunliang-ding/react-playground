@@ -1,7 +1,7 @@
 {
-  "name": "my-react-playground",
+  "name": "react-playcode",
   "version": "0.0.1",
-  "description": "my-react-playground 代码演示台",
+  "description": "react-playcode 代码演示台",
   "author": "yunliang-ding",
   "homepage": "https://yunliang-ding.github.io/react-playground",
   "keywords": [
@@ -10,7 +10,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/yunliang-ding/react-playground"
+    "url": "https://github.com/yunliang-ding/react-playcode"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
