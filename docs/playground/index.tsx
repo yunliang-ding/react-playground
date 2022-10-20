@@ -1,5 +1,5 @@
 import React, { useEffect, useState, memo } from 'react';
-import { Editor, babelParse, encode, decode } from 'react-playground';
+import { Editor, babelParse, encode, decode } from 'my-react-playground';
 import { Spin } from 'antd';
 import './index.less';
 

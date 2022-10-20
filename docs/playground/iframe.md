@@ -13,7 +13,7 @@ gapless: true
  */
 import ReactDom from 'react-dom';
 import React, { useState, useEffect } from 'react';
-import { babelParse, decode } from 'react-playground';
+import { babelParse, decode } from 'my-react-playground';
 
 export default () => {
   const params: any = new URLSearchParams(location.hash.split('?')[1]);
