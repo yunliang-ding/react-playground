@@ -46,4 +46,22 @@ const babelParse = ({
   }
 };
 
-export { babelParse, BabelCompile, Editor };
+const encode = (str): string => {
+  try {
+    return btoa(encodeURIComponent(str));
+  } catch (error) {
+    console.log(error);
+    return '';
+  }
+};
+
+const decode = (str): string => {
+  try {
+    return decodeURIComponent(atob(str));
+  } catch (error) {
+    console.log(error);
+    return '';
+  }
+};
+
+export { babelParse, BabelCompile, Editor, encode, decode };

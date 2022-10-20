@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useRef, memo } from 'react';
-import { Editor, babelParse } from 'react-playground';
+import React, { useEffect, useState, memo } from 'react';
+import { Editor, babelParse, encode, decode } from 'react-playground';
 import { Spin } from 'antd';
 import './index.less';
 
@@ -11,7 +11,7 @@ export default () => {
   const params: any = new URLSearchParams(location.hash.split('?')[1]);
   const [iframeSpin, setIframeSpin] = useState(true);
   const [code, setCode] = useState(
-    params.get('code') ? decodeURIComponent(params.get('code')) : defualtCode,
+    params.get('code') ? decode(params.get('code')) : defualtCode,
   );
   const [errorInfo, setErrorInfo]: any = useState(false);
   // 运行代码
@@ -34,20 +34,10 @@ export default () => {
   }, [code]);
   return (
     <div className="core-form-playground">
-      <div
-        className="playground-left"
-        style={{
-          display: params.get('mode') === 'preview' ? 'none' : 'block',
-        }}
-      >
+      <div className="playground-left">
         <CacheEditor code={code} setCode={setCode} />
       </div>
-      <div
-        className="playground-right"
-        style={{
-          width: params.get('mode') === 'preview' ? '100%' : '50%',
-        }}
-      >
+      <div className="playground-right">
         {iframeSpin && (
           <div className="playground-iframe-loading">
             <Spin spinning></Spin>
@@ -62,7 +52,9 @@ export default () => {
         {!errorInfo && (
           <iframe
             key={code}
-            src={`${location.pathname}#/~demos/iframe-demo?code=${code}`}
+            src={`${location.pathname}#/~demos/iframe-demo?code=${encode(
+              code,
+            )}`}
             onLoad={() => {
               setIframeSpin(false);
             }}
