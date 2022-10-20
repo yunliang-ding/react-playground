@@ -17,7 +17,7 @@ export default () => {
     } catch (error) {
       ReactDom.render(
         <div className="playground-error-info">
-          <pre>解析失败:</pre>
+          <div>解析失败:</div>
           <pre>{String(error)}</pre>
         </div>,
         document.querySelector('#app'),
