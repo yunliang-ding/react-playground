@@ -1,4 +1,6 @@
 /* eslint-disable */
+import Console from './console';
+
 const { transform } = require('babel-standalone');
 const antd = require('antd');
 const react = require('react');
@@ -44,6 +46,11 @@ class BabelCompile {
       }).code;
       const transfromCode = transform(
         `(require, exports) => {
+          /** 修饰打印 */
+          const __log__ = console.log.bind(console);
+          console.log = function(...p){
+            __log__(...p, Console.print(p));
+          }
           ${es5};
         }`,
         {

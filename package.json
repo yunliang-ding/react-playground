@@ -38,7 +38,8 @@
   "dependencies": {
     "@iceworks/spec": "^1.4.2",
     "monaco-editor": "0.33.0",
-    "babel-standalone": "6.26.0"
+    "babel-standalone": "6.26.0",
+    "react-dom": "17.0.2"
   },
   "peerDependencies": {
     "react": "17.0.2",

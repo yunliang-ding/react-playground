@@ -13,14 +13,17 @@ export default () => {
         code: decode(params.get('code')),
         prefix: '',
       });
-      ReactDom.render(<ComponentApp />, document.querySelector('#app'));
+      ReactDom.render(
+        <ComponentApp />,
+        document.querySelector('.playground-iframe-app'),
+      );
     } catch (error) {
       ReactDom.render(
         <div className="playground-error-info">
           <div>解析失败:</div>
           <pre>{String(error)}</pre>
         </div>,
-        document.querySelector('#app'),
+        document.querySelector('.playground-iframe-app'),
       );
     }
   };
@@ -29,5 +32,13 @@ export default () => {
       parseStringToModule();
     }
   }, []);
-  return <div id="app" className="playground-iframe" />;
+  return (
+    <div className="playground-iframe">
+      <div className="playground-iframe-app" />
+      <div className="playground-iframe-console">
+        <div className="playground-iframe-console-header">header</div>
+        <div className="playground-iframe-console-body" />
+      </div>
+    </div>
+  );
 };
