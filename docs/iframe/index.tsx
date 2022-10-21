@@ -36,7 +36,7 @@ export default () => {
     <div className="playground-iframe">
       <div className="playground-iframe-app" />
       <div className="playground-iframe-console">
-        <div className="playground-iframe-console-header">header</div>
+        <div className="playground-iframe-console-header">Console</div>
         <div className="playground-iframe-console-body" />
       </div>
     </div>

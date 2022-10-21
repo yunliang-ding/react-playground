@@ -28,6 +28,7 @@ class BabelCompile {
       axios,
       antd,
       'react-core-form': coreForm,
+      Console,
     };
   }
   require = (key: string) => {
@@ -49,7 +50,8 @@ class BabelCompile {
           /** 修饰打印 */
           const __log__ = console.log.bind(console);
           console.log = function(...p){
-            __log__(...p, Console.print(p));
+            __log__(...p);
+            require('Console').print(p);
           }
           ${es5};
         }`,
