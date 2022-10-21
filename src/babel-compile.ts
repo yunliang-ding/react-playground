@@ -48,9 +48,9 @@ class BabelCompile {
       const transfromCode = transform(
         `(require, exports) => {
           /** 修饰打印 */
-          const __log__ = console.log.bind(console);
+          const console_log_bind_001 = console.log.bind(console);
           console.log = function(...p){
-            __log__(...p);
+            console_log_bind_001(...p);
             require('Console').print(p);
           }
           ${es5};

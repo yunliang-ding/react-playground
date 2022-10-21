@@ -1,6 +1,3 @@
-/* eslint-disable @iceworks/best-practices/recommend-polyfill */
-/* eslint-disable react/jsx-closing-tag-location */
-/* eslint-disable react/jsx-wrap-multilines */
 import ReactDom from 'react-dom';
 
 const SimpleConsole = ({ value }) => {
