@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDom from 'react-dom';
 import { babelParse, decode } from 'react-playcode';
 import './index.less';
 
 export default () => {
   const params: any = new URLSearchParams(location.hash.split('?')[1]);
+  const [console, setConsole] = useState(true);
   // 解析
   const parseStringToModule = async () => {
     try {
@@ -36,8 +37,21 @@ export default () => {
     <div className="playground-iframe">
       <div className="playground-iframe-app" />
       <div className="playground-iframe-console">
-        <div className="playground-iframe-console-header">Console</div>
-        <div className="playground-iframe-console-body" />
+        {console && (
+          <>
+            <div className="playground-iframe-console-header">控制台结果</div>
+            <div className="playground-iframe-console-body" />
+          </>
+        )}
+
+        <button onClick={() => setConsole(!console)} className="console-btn">
+          控制台
+          {console ? (
+            <span className="icon iconfont">&#xe614;</span>
+          ) : (
+            <span className="icon iconfont">&#xe63a;</span>
+          )}
+        </button>
       </div>
     </div>
   );

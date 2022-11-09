@@ -1,3 +1,4 @@
+@import url('../../src/icon/icon.css');
 .playground-iframe {
   height: 100vh;
   width: 100%;
@@ -15,6 +16,15 @@
   }
   .playground-iframe-console {
     height: 300px;
+    position: relative;
+    .console-btn {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      z-index: 100;
+      cursor: pointer;
+      border: none;
+    }
     &-header {
       height: 30px;
       background: #f8f8f8;

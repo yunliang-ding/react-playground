@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 2814720 */
+  src: url('./common/iconfont.woff') format('woff2'),
+       url('./common/iconfont.woff') format('woff'),
+       url('./common/iconfont.ttf') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
