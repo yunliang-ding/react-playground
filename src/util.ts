@@ -17,3 +17,8 @@ export const isEmpty = (param: any) => {
   }
   return false;
 };
+
+export const getJSType = (obj: unknown): string => {
+  const type = Object.prototype.toString.call(obj).slice(8, -1);
+  return type.toLocaleLowerCase();
+};

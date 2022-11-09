@@ -6,7 +6,6 @@ const antd = require('antd');
 const react = require('react');
 const axios = require('axios');
 const moment = require('moment');
-const coreForm = require('react-core-form');
 const presets = ['es2015', 'stage-0', 'react'];
 
 const safeEval = (code: string) => {
@@ -27,7 +26,6 @@ class BabelCompile {
       moment,
       axios,
       antd,
-      'react-core-form': coreForm,
       Console,
     };
   }
@@ -51,7 +49,11 @@ class BabelCompile {
           const console_log_bind_001 = console.log.bind(console);
           console.log = function(...p){
             console_log_bind_001(...p);
-            require('Console').print(p);
+            try {
+              require('Console').print(...p);
+            } catch(e) {
+              console_log_bind_001('err',e)
+            }
           }
           ${es5};
         }`,
