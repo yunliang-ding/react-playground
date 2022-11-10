@@ -5,19 +5,20 @@ import '../../index.less';
 
 const map = {
   object: ObjectRender,
+  // array: ArrayRender,
 };
 
-export default ({ value, logprefix }: { value: string; logprefix: string }) => {
-  if (logprefix) {
-    const temp = value;
-    value = logprefix;
-    logprefix = temp;
-  }
-  const VM = map[getJSType(value)] || (() => <div>{value.toString()}</div>);
+export default ({ value, log }) => {
   return (
     <div className="console-wrap">
-      {logprefix ? `${logprefix}:` : ''}
-      <VM value={value} />
+      {value.map((itme) => {
+        const VM =
+          map[getJSType(itme)] ||
+          (({ value }) => (
+            <div style={{ marginRight: 10 }}>{value.toString()}</div>
+          ));
+        return <VM value={itme} log={log} />;
+      })}
     </div>
   );
 };

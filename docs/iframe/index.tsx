@@ -47,9 +47,9 @@ export default () => {
         <button onClick={() => setConsole(!console)} className="console-btn">
           控制台
           {console ? (
-            <span className="icon iconfont">&#xe614;</span>
-          ) : (
             <span className="icon iconfont">&#xe63a;</span>
+          ) : (
+            <span className="icon iconfont">&#xe614;</span>
           )}
         </button>
       </div>

@@ -50,7 +50,7 @@ class BabelCompile {
           console.log = function(...p){
             console_log_bind_001(...p);
             try {
-              require('Console').print(...p);
+              require('Console').print(p, console_log_bind_001);
             } catch(e) {
               console_log_bind_001('err',e)
             }
