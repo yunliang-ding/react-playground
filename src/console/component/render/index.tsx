@@ -8,16 +8,22 @@ const map = {
   // array: ArrayRender,
 };
 
-export default ({ value, log }) => {
+export default ({ values, log }) => {
   return (
     <div className="console-wrap">
-      {value.map((itme) => {
-        const VM =
-          map[getJSType(itme)] ||
-          (({ value }) => (
-            <div style={{ marginRight: 10 }}>{value.toString()}</div>
-          ));
-        return <VM value={itme} log={log} />;
+      {values.map((value) => {
+        return (
+          <div className="console-wrap-row">
+            {value.map((itme) => {
+              const VM =
+                map[getJSType(itme)] ||
+                (({ value }) => (
+                  <div style={{ marginRight: 10 }}>{value.toString()}</div>
+                ));
+              return <VM value={itme} log={log} />;
+            })}
+          </div>
+        );
       })}
     </div>
   );
