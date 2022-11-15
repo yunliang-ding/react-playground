@@ -6,6 +6,7 @@ const antd = require('antd');
 const react = require('react');
 const axios = require('axios');
 const moment = require('moment');
+const reactCoreForm = require('react-core-form');
 const presets = ['es2015', 'stage-0', 'react'];
 
 const safeEval = (code: string) => {
@@ -27,6 +28,7 @@ class BabelCompile {
       axios,
       antd,
       Console,
+      'react-core-form': reactCoreForm,
     };
   }
   require = (key: string) => {
