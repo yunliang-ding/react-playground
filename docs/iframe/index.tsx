@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ReactDom from 'react-dom';
+import * as reactCoreForm from 'react-core-form';
+import * as reactCoreFormDesigner from 'react-core-form-designer';
 import { babelParse, decode } from 'react-playcode';
 import './index.less';
 
@@ -13,6 +15,10 @@ export default () => {
         // base64 转一下
         code: decode(params.get('code')),
         prefix: '',
+        require: {
+          'react-core-form': reactCoreForm,
+          'react-core-form-designer': reactCoreFormDesigner,
+        },
       });
       ReactDom.render(
         <ComponentApp />,
