@@ -1,5 +1,4 @@
 /* eslint-disable */
-import Console from './console';
 
 const { transform } = require('babel-standalone');
 const antd = require('antd');
@@ -26,7 +25,6 @@ class BabelCompile {
       moment,
       axios,
       antd,
-      Console,
     };
   }
   require = (key: string) => {
@@ -45,16 +43,6 @@ class BabelCompile {
       }).code;
       const transfromCode = transform(
         `(require, exports) => {
-          /** 修饰打印 */
-          const console_log_bind_001 = console.log.bind(console);
-          console.log = function(...p){
-            console_log_bind_001(...p);
-            try {
-              require('Console').print(p, console_log_bind_001);
-            } catch(e) {
-              console_log_bind_001('err',e)
-            }
-          }
           ${es5};
         }`,
         {

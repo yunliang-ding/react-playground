@@ -8,6 +8,7 @@ import './index.less';
 export default () => {
   const params: any = new URLSearchParams(location.hash.split('?')[1]);
   const [console, setConsole] = useState(true);
+
   // 解析
   const parseStringToModule = async () => {
     try {
@@ -38,6 +39,13 @@ export default () => {
     if (params.get('code')) {
       parseStringToModule();
     }
+  }, []);
+  const logInstance = reactCoreForm.ConsoleRender.create({
+    target: '.playground-iframe-console-body',
+  });
+  useEffect(() => {
+    // 监听日志打印
+    logInstance.listener();
   }, []);
   return (
     <div className="playground-iframe">

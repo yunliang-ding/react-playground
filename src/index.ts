@@ -2,7 +2,6 @@
 import { isEmpty } from '@/util';
 import BabelCompile from './babel-compile';
 import Editor from './editor';
-import Console from './console';
 
 /**
  * 解析
@@ -66,4 +65,4 @@ const decode = (str): string => {
   }
 };
 
-export { babelParse, BabelCompile, Editor, Console, encode, decode };
+export { babelParse, BabelCompile, Editor, encode, decode };

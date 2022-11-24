@@ -47,7 +47,7 @@
     "axios": "^0.21.1"
   },
   "devDependencies": {
-    "react-core-form": "0.0.19",
+    "react-core-form": "0.0.21",
     "react-core-form-designer": "0.0.10",
     "axios": "^0.21.1",
     "@types/lodash": "4.14.168",
